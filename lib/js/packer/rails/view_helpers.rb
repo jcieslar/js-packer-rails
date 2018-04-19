@@ -1,3 +1,5 @@
+require 'rails'
+
 module Js
   module Packer
     module Rails
@@ -5,7 +7,7 @@ module Js
         def js_bundle_tag(*sources)
           sources.uniq.map do |source|
             bundle_name = js_bundle_name(source)
-            content_tag :script, '', src: "#{bundle_path}"
+            content_tag :script, '', src: "#{bundle_path(bundle_name)}"
           end.join("\n").html_safe
         end
 
@@ -17,7 +19,7 @@ module Js
         def js_bundle_name(source)
           manifest_file = File.read(manifest_path(source))
           manifest = JSON.parse(manifest_file)
-          bundle_name = manifest[source + '.js']
+          manifest[source + '.js']
         end
 
         private
@@ -31,11 +33,11 @@ module Js
         end
 
         def config?
-          File.exist?("#{::Rails.root}/config/packer.yaml")
+          File.exist?("#{::Rails.root}/config/packer.yml")
         end
 
         def config
-          YAML.load_file("#{::Rails.root}/config/packer.yaml")[::Rails.env]
+          YAML.load_file("#{::Rails.root}/config/packer.yml")[::Rails.env]
         end
 
         def config_manifest_path
