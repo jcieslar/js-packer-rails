@@ -5,16 +5,26 @@ It could be Webpack or Grunt or Gulp or Any New Awesome JS tool :)
 I believe the choice of the tools should depend on the issues you want to solve, so use JS tool to bundle your source JS code.
 
 The Packer:
-* doesn't care you bundle your JavaScript
+* doesn't care how do you bundle your JavaScript
 * doesn't use Rails assets pipeline
 * is dedicated only for Rails
 * requires JavaScript manifest file
-* adds 3 helper methods to your view:
+* adds 3 helper methods to your views:
 ```
 js_bundle_tag(*sources)
 js_bundle_hash(source)
 js_bundle_name(source)
 ```
+
+## Example
+
+How to use `js-packer-rails` gem in Rails app with:
+
+* Webpack
+* Babel
+* React
+
+[https://github.com/jcieslar/js_packer_rails_example](JS packer Rails example)
 
 ## Installation
 
