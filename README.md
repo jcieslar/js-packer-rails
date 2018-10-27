@@ -24,7 +24,7 @@ How to use `js-packer-rails` gem in Rails app with:
 * Babel
 * React
 
-[https://github.com/jcieslar/js_packer_rails_example](JS packer Rails example)
+[https://github.com/jcieslar/js_packer_rails_example](https://github.com/jcieslar/js_packer_rails_example)
 
 ## Installation
 
