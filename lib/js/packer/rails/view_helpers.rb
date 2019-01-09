@@ -7,7 +7,7 @@ module Js
         def js_bundle_tag(*sources)
           sources.uniq.map do |source|
             bundle_name = js_bundle_name(source)
-            content_tag :script, '', src: "#{bundle_path(bundle_name)}"
+            content_tag :script, '', src: "#{js_bundle_path(bundle_name)}"
           end.join("\n").html_safe
         end
 
@@ -22,15 +22,16 @@ module Js
           manifest[source + '.js']
         end
 
+        def js_bundle_path(bundle_name)
+          "/#{config_bundle_path}/#{bundle_name}"
+        end
+
         private
 
         def manifest_path(source)
           "#{::Rails.root}/#{config_manifest_path}/#{source}.json"
         end
 
-        def bundle_path(bundle_name)
-          "/#{config_bundle_path}/#{bundle_name}"
-        end
 
         def config?
           File.exist?("#{::Rails.root}/config/packer.yml")
