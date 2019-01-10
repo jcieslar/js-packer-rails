@@ -6,8 +6,7 @@ module Js
       module ViewHelpers
         def js_bundle_tag(*sources)
           sources.uniq.map do |source|
-            bundle_name = js_bundle_name(source)
-            content_tag :script, '', src: "#{js_bundle_path(bundle_name)}"
+            content_tag :script, '', src: "#{js_bundle_path(source)}"
           end.join("\n").html_safe
         end
 
