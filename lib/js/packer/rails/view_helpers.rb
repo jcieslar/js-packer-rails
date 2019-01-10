@@ -22,7 +22,8 @@ module Js
           manifest[source + '.js']
         end
 
-        def js_bundle_path(bundle_name)
+        def js_bundle_path(source)
+          bundle_name = js_bundle_name(source)
           "/#{config_bundle_path}/#{bundle_name}"
         end
 
