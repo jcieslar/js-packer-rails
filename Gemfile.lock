@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    js-packer-rails (0.1.8)
+    js-packer-rails (1.0.0)
       railties (>= 5.2)
 
 GEM
